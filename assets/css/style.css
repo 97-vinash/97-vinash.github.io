@@ -1,0 +1,116 @@
+/* 🔧 Fixed container class */
+.container {
+  max-width: 1100px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+/* General body styling */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9f9;
+  color: #222;
+}
+
+/* Navbar styles */
+.topbar {
+  background-color: #1a1a1a;
+  padding: 0.8em 1em;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.topbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.site-name {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.nav-links a {
+  color: #ffffff;
+  text-decoration: none;
+  margin-left: 1.5em;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #ffd700;
+}
+
+/* Content area */
+.content {
+  padding: 2em 0;
+}
+
+.content .container {
+  max-width: 1100px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+/* Blog posts list */
+.posts-list {
+  list-style: none;
+  padding: 0;
+}
+
+.post-item {
+  margin-bottom: 2em;
+  padding-bottom: 1em;
+  border-bottom: 1px solid #ddd;
+}
+
+.post-date {
+  font-size: 0.9em;
+  color: #888;
+}
+
+.post-title {
+  margin: 0.3em 0;
+}
+
+.post-title a {
+  color: #222;
+  text-decoration: none;
+}
+
+.post-title a:hover {
+  text-decoration: underline;
+}
+
+.post-tags .tag {
+  background-color: #eee;
+  padding: 2px 6px;
+  margin-right: 5px;
+  border-radius: 3px;
+  font-size: 0.85em;
+}
+
+.post-excerpt {
+  margin-top: 0.5em;
+  color: #444;
+}
+
+/* Post page layout (optional if you use same layout for posts) */
+main.post.content {
+  margin: 2em 0;
+}
+
+main.post.content .container {
+  max-width: 1100px;
+  width: 90%;
+  margin: 0 auto;
+  background: white;
+  padding: 2em;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.05);
+}
+

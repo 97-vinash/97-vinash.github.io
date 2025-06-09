@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>{{ page.title }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <a href="{{ '/' | relative_url }}" class="site-name">97-vinash</a>
+      <nav class="nav-links">
+        <a href="{{ '/about' | relative_url }}">About Me</a>
+        <a href="https://github.com/yourgithubusername" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://youtube.com/yourchannel" target="_blank" rel="noopener">YouTube</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="post content">
+    <div class="container">
+      <div class="post-meta">
+        <div class="post-date">{{ page.date | date: "%B %-d, %Y" }}</div>
+        <h1 class="post-title">{{ page.title }}</h1>
+
+        {% if page.tags %}
+        <div class="post-tags">
+          {% for tag in page.tags %}
+            <span class="tag">{{ tag }}</span>{% unless forloop.last %}, {% endunless %}
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+
+      <hr />
+
+      <div class="post-content">
+        {{ content }}
+      </div>
+    </div>
+  </main>
+</body>
+</html>
+
