@@ -3,7 +3,7 @@ layout: post
 title: "Reason to Start this Blog"
 tags: [Writeup, About me, Cyber Security, College Life]
 date: 2025-06-09
-excerpt: "As college student and a growing interested in Cyber Security,i am aiming to become a Red Team Operator or Penetration Tester. This blog documents my learning journey, projects, and growth in practical security skills."
+excerpt: "As college student and a growing interested in Cyber Security, i am aiming to become a Penetration Tester. This blog documents my learning journey, projects, and growth in practical security skills."
 ---
 Welcome to my blog! I’ve just completed my second year of college specializing in Cyber Security. While I’ve gained a solid foundation in theory, I haven’t yet had the chance to work on many real-world projects applying that knowledge. The first two years of my curriculum have focused mostly on core computer science concepts, with limited emphasis on practical cyber security skills.
 
