@@ -1,18 +1,15 @@
 ---
-layout: page
-title: About
+layout: default
+title: About Me
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+# About Me
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
+Hello! I'm **Avinash Shankar**, Pursuing my B.Tech Degree in with cse-cyber security.   
+This site is a hub for my blogs, projects, and tutorials.
 
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
+You can find my work on [GitHub](https://github.com/97-vinash) and my videos on [YouTube](https://youtube.com/@CoreCrowCode).
 
+Thanks for visiting!
 
-[jekyll-organization]: https://github.com/jekyll
