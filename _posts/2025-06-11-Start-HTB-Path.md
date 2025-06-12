@@ -11,8 +11,12 @@ excerpt: "Sharing my thoughts on starting the HTB Information Security Foundatio
 - This post is about me starting a new journey in HTB and starting my first path: Information Security Foundation.  
 - I wrote this blog to clearly state what I learned through this and what are important or unimportant things in the first 2 modules.  
 - In this specific post, I’m not going to discuss any technical aspects or things, because I’ve only completed the first 2 modules, and they are mainly focused on how to think/manage/understand your thoughts — and about not giving up and being persistent.
+<div style="display: flex; gap: 40px; margin-bottom: 20px; margin-left: 40px">
+  <img src="{{ site.baseurl }}/assets/images/screenshot-intro-to-academy.png" alt="Intro" style="width: 25%; height: 25%;">
+  <img src="{{ site.baseurl }}/assets/images/learning-process.png" alt="Learning Process" style="width: 25%; height: 25%;">
+</div>
 
----
+--- 
 
 ## Quick Notes
 
@@ -26,7 +30,7 @@ The second module has some important concepts/topics — maybe unimportant from 
 It can give you direction on how to think clearly, and how to think logically and differently — and to keep going and push your limits to get out of your comfort zone.  
 *(Yes, I did read the whole thing line by line, word by word, and it was so much info to take in. I also added it to favourites to look it up when I don't feel motivated or feel low.)*
 
----
+--- 
 
 ## Key Takeaways (according to me)
 
@@ -41,7 +45,7 @@ It can give you direction on how to think clearly, and how to think logically an
 - Frustration is temporary. This means that when we feel frustrated, it will pass — don't panic or overreact. Take a deep breath and think about it for a sec.  
 - Search for some sample Penetration Testing Reports/Documents to get familiar with it. *(Recommended)*
 
----
+--- 
 
 ## What’s Next?
 
@@ -49,7 +53,7 @@ It can give you direction on how to think clearly, and how to think logically an
 - Take short notes only for things that looked interesting or useful.  
 - Start exploring terminal commands. (already familiar with atleast 40% of them)  
 
----
+--- 
 
 ## Thank You For Reading
 Thanks for reading! This is just me sharing my journey as I go. If you're on a similar path, I hope it helped even a little. More to come soon.

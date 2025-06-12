@@ -21,7 +21,7 @@
 title: "My Cyber Blog"
 email: avinashhhsinghhh@gmail.com
 description: "My Journy to Red Team Operator, Learning Progress, CTF writeups, red teaming notes"
-baseurl: "" # the subpath of your site, e.g. /blog
+baseurl: "/my-cyber-blog" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username:
 github_username:  97-vinash
