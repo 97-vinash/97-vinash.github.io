@@ -12,8 +12,8 @@ excerpt: "Sharing my thoughts on starting the HTB Information Security Foundatio
 - I wrote this blog to clearly state what I learned through this and what are important or unimportant things in the first 2 modules.  
 - In this specific post, I’m not going to discuss any technical aspects or things, because I’ve only completed the first 2 modules, and they are mainly focused on how to think/manage/understand your thoughts — and about not giving up and being persistent.
 <div style="display: flex; gap: 40px; margin-bottom: 20px; margin-left: 40px">
-  <img src="{{ site.baseurl }}/assets/images/screenshot-intro-to-academy.png" alt="Intro" style="width: 25%; height: 25%;">
-  <img src="{{ site.baseurl }}/assets/images/learning-process.png" alt="Learning Process" style="width: 25%; height: 25%;">
+  <img src="/assets/images/screenshot-intro-to-academy.png" alt="Intro" style="width: 25%; height: 25%;">
+  <img src="/assets/images/learning-process.png" alt="Learning Process" style="width: 25%; height: 25%;">
 </div>
 
 --- 
