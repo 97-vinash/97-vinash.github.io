@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Reason to Start this Blog"
 tags: [Writeup, About me, Cyber Security, College Life]
 date: 2025-06-09

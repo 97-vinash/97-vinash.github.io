@@ -12,7 +12,7 @@ title: 97-vinash Homepage
     {% if post.tags %}
     <div class="post-tags">
       {% for tag in post.tags %}
-        <span class="tag">{{ tag }}</span>{% unless forloop.last %}, {% endunless %}
+        <span class="tag">{{ tag }}</span>
       {% endfor %}
     </div>
     {% endif %}

@@ -1,0 +1,10 @@
+- name: About Me
+  url: /about
+  external: false
+- name: GitHub
+  url: https://github.com/97-vinash
+  external: true
+- name: LinkedIn
+  url: https://www.linkedin.com/in/avinash-shankar-643809249/
+  external: true
+

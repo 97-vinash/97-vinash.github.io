@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Starting 1st HTB Path - Information Security Foundation"
 tags: [HTB, Information Security, Fundamentals, Mindset, Writeup]
 date: 2025-06-11

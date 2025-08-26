@@ -2,21 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>{{ page.title }}</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if page.title %}{{ page.title | escape }} | {% endif %}{{ site.title | escape }}</title>
+  {% if site.plugins contains "jekyll-seo-tag" %}{% seo %}{% endif %}
+  {% feed_meta %}
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
 </head>
+
 <body>
-  <header class="topbar">
-    <div class="container">
-      <a href="{{ '/' | relative_url }}" class="site-name">97-vinash</a>
-      <nav class="nav-links">
-        <a href="{{ '/about' | relative_url }}">About Me</a>
-        <a href="https://github.com/yourgithubusername" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://youtube.com/yourchannel" target="_blank" rel="noopener">YouTube</a>
-      </nav>
-    </div>
-  </header>
+  {% include header.html %}
 
   <main class="post content">
     <div class="container">
@@ -32,7 +25,8 @@
         </div>
         {% endif %}
       </div>
-
+      
+      <br />
       <hr />
 
       <div class="post-content">
@@ -40,6 +34,9 @@
       </div>
     </div>
   </main>
+
+  {% include footer.html %}
+
 </body>
 </html>
 

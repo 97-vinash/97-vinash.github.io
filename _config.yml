@@ -1,4 +1,4 @@
-title: "My Cyber Blog"
+title: "97-vinash"
 email: avinashhhsinghhh@gmail.com
 description: "My Journy to Red Team Operator, Learning Progress, CTF writeups, red teaming notes"
 baseurl: "" # the subpath of your site, e.g. /blog
@@ -6,8 +6,19 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username:
 github_username:  97-vinash
 
-# Build settings
-theme: minima
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+
+header_title: "97-vinash"
+
+permalink: /:year/:month/:day/:title/
+
+# Build settings 
 plugins:
   - jekyll-feed
+  - jekyll-seo-tag
 
