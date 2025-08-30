@@ -16,7 +16,7 @@ title: 97-vinash Homepage
       {% endfor %}
     </div>
     {% endif %}
-    <p class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+    <p class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 90 }}</p>
   </li>
   {% endfor %}
 </ul>
