@@ -7,25 +7,23 @@ excerpt: "Sharing my thoughts on starting the HTB Information Security Foundatio
 
 ## Context
 
-- This post is about me starting a new journey in HTB and starting my first path: Information Security Foundation.  
-- I wrote this blog to clearly state what I learned through this and what are important or unimportant things in the first 2 modules.  
-- In this specific post, I’m not going to discuss any technical aspects or things, because I’ve only completed the first 2 modules, and they are mainly focused on how to think/manage/understand your thoughts — and about not giving up and being persistent.
-<div style="display: flex; gap: 40px; margin-bottom: 20px; margin-left: 40px">
-  <img src="/assets/images/screenshot-intro-to-academy.png" alt="Intro" style="width: 25%; height: 25%;">
-  <img src="/assets/images/learning-process.png" alt="Learning Process" style="width: 25%; height: 25%;">
+This post is about me starting a new journey in HTB and starting my first path: **Information Security Foundation**.  
+I wrote this blog to clearly state what I learned through this and what are important things in the first 2 modules.  
+In this specific post, I’m not going to discuss any technical aspects, because I’ve only completed the first 2 modules, and they are mainly focused on how to think/manage/understand your thoughts as a cybersecurity learner — and not giving up and being persistent.
+<div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+  <img src="/assets/images/screenshot-intro-to-academy.png" alt="Intro" style="width: 45%; height: 45%;">
+  <img src="/assets/images/learning-process.png" alt="Learning Process" style="width: 45%; height: 45%;">
 </div>
 
 --- 
 
 ## Quick Notes
 
-### Concepts
-
 **Module 1 – Intro to Academy**  
 It just tells the main terminologies that are used in HTB Academy — things like **Path**, **Modules**, **Sections**, etc. There's nothing much to explain here.
 
 **Module 2 – Learning Process**  
-The second module has some important concepts/topics — maybe unimportant from other people's perspective — but I think it is also useful in the sense that it gives you an idea of how simple things like decision-making, setting a goal, or fear of something can be put in a very logically explained way, according to psychology and research.  
+The second module has some important concepts/topics — maybe not very important for other people — But I think it's also useful in the sense that it gives you an idea of how simple things like decision-making, setting a goal, or fear of something, can be put in a very logically explained way, according to psychology and research.  
 It can give you direction on how to think clearly, and how to think logically and differently — and to keep going and push your limits to get out of your comfort zone.  
 *(Yes, I did read the whole thing line by line, word by word, and it was so much info to take in. I also added it to favourites to look it up when I don't feel motivated or feel low.)*
 
@@ -50,9 +48,9 @@ It can give you direction on how to think clearly, and how to think logically an
 
 - Continue the next modules 3-4.  
 - Take short notes only for things that looked interesting or useful.  
-- Start exploring terminal commands. (already familiar with atleast 40% of them)  
+- Start exploring terminal commands.  
 
 --- 
 
-## Thank You For Reading
-Thanks for reading! This is just me sharing my journey as I go. If you're on a similar path, I hope it helped even a little. More to come soon.
+## ThankYou For Reading
+Thankyou for reading! This is just me sharing my journey as I go. If you're on a similar path, I hope it helped even a little. More to come soon.
