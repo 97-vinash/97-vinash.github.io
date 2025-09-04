@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 97-vinash Homepage
+title: 97-vinash Blogs
 ---
 
 <h1>Blog Posts</h1>
