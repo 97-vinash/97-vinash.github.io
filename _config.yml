@@ -1,10 +1,10 @@
-title: "97-vinash"
+title: "vinash"
 email: avinashhhsinghhh@gmail.com
-description: "My Journy to Red Team Operator, Learning Progress, CTF writeups, red teaming notes"
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+description: "My Journey to Red Team Operator, Learning Progress, CTF writeups, red teaming notes"
+baseurl: ""
+url: ""
 twitter_username:
-github_username:  97-vinash
+github_username: 97-vinash
 
 defaults:
   - scope:
@@ -13,12 +13,19 @@ defaults:
     values:
       layout: "post"
 
-header_title: "97-vinash"
+header_title: "VINASH"
 
 permalink: /:year/:month/:day/:title/
 
-# Build settings 
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
 
+exclude:
+  - node_modules
+  - vendor
+  - .git
+  - .sass-cache
+  - Gemfile
+  - Gemfile.lock
+  - README.md

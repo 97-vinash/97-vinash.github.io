@@ -1,42 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% if page.title %}{{ page.title | escape }} | {% endif %}{{ site.title | escape }}</title>
   {% if site.plugins contains "jekyll-seo-tag" %}{% seo %}{% endif %}
   {% feed_meta %}
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
 </head>
-
 <body>
+
   {% include header.html %}
 
-  <main class="post content">
-    <div class="container">
-      <div class="post-meta">
-        <div class="post-date">{{ page.date | date: "%B %-d, %Y" }}</div>
-        <h1 class="post-title">{{ page.title }}</h1>
+<main class="post content">
+  <!-- Fixed Back button - now outside the content container -->
+  <a href="{{ '/' | relative_url }}" class="back-home-fixed" aria-label="Back to homepage">
+    <svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="10,4 6,8 10,12"/>
+    </svg>
+    <span>Back</span>
+  </a>
 
-        {% if page.tags %}
-        <div class="post-tags">
-          {% for tag in page.tags %}
-            <span class="tag">{{ tag }}</span>
-          {% endfor %}
+  <div class="container">
+    <div class="post-layout">
+      <article class="post-article">
+        <div class="post-meta">
+          <div class="post-date">{{ page.date | date: "%B %-d, %Y" }}</div>
+          <h1 class="post-title">{{ page.title }}</h1>
+          {% if page.tags %}
+          <div class="post-tags">
+            {% for tag in page.tags %}
+              <span class="tag">{{ tag }}</span>
+            {% endfor %}
+          </div>
+          {% endif %}
         </div>
-        {% endif %}
-      </div>
-      
-      <br />
-      <hr />
+        <hr class="post-divider" />
+        <div class="post-content" id="post-body">
+          {{ content }}
+        </div>
+      </article>
 
-      <div class="post-content">
-        {{ content }}
-      </div>
+      <aside class="post-toc-sidebar" id="toc-sidebar-container">
+        <div id="toc-title">On this page</div>
+        <ul id="toc-list"></ul>
+      </aside>
     </div>
-  </main>
+  </div>
+</main>
 
   {% include footer.html %}
 
+  <!-- Fixed Back button (appears on all posts) -->
+  <a href="{{ '/' | relative_url }}" class="back-home-fixed" aria-label="Back to homepage">
+    <svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="10,4 6,8 10,12"/>
+    </svg>
+    <span>Back</span>
+  </a>
+
+  <!-- Scroll-to-top button -->
+  <button id="scroll-top" aria-label="Back to top">
+    <svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="4,10 8,6 12,10"/>
+    </svg>
+  </button>
+
+  <script>
+    (function() {
+      // Scroll to top
+      const scrollBtn = document.getElementById('scroll-top');
+      if (scrollBtn) {
+        window.addEventListener('scroll', () => {
+          scrollBtn.classList.toggle('visible', window.scrollY > 400);
+        }, { passive: true });
+        scrollBtn.addEventListener('click', () => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+
+      // Table of Contents
+      const postBody = document.getElementById('post-body');
+      const tocList = document.getElementById('toc-list');
+      if (!postBody || !tocList) return;
+
+      const headings = Array.from(postBody.querySelectorAll('h1, h2, h3, h4'));
+      if (headings.length < 2) {
+        document.getElementById('toc-sidebar-container').style.display = 'none';
+        return;
+      }
+
+      headings.forEach((h, idx) => {
+        if (!h.id) {
+          let base = h.textContent.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+          if (!base) base = 'section';
+          h.id = `${base}-${idx}`;
+        }
+      });
+
+      headings.forEach((h) => {
+        const li = document.createElement('li');
+        li.classList.add(`toc-${h.tagName.toLowerCase()}`);
+        const a = document.createElement('a');
+        a.href = `#${h.id}`;
+        a.textContent = h.textContent;
+        a.addEventListener('click', (e) => {
+          e.preventDefault();
+          h.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+        li.appendChild(a);
+        tocList.appendChild(li);
+      });
+
+      const tocLinks = Array.from(tocList.querySelectorAll('a'));
+      const OFFSET = 130;
+      function markActiveHeading() {
+        const scrollY = window.scrollY + OFFSET;
+        let activeHeading = headings[0];
+        for (let i = headings.length - 1; i >= 0; i--) {
+          const h = headings[i];
+          const top = h.getBoundingClientRect().top + window.scrollY;
+          if (top <= scrollY) {
+            activeHeading = h;
+            break;
+          }
+        }
+        tocLinks.forEach((link) => {
+          const targetId = link.getAttribute('href').substring(1);
+          link.classList.toggle('active', targetId === activeHeading.id);
+        });
+      }
+      window.addEventListener('scroll', markActiveHeading, { passive: true });
+      markActiveHeading();
+    })();
+  </script>
 </body>
 </html>
-
