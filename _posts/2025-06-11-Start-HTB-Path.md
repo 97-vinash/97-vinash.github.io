@@ -52,5 +52,5 @@ It can give you direction on how to think clearly, and how to think logically an
 
 --- 
 
-## ThankYou For Reading
-Thankyou for reading! This is just me sharing my journey as I go. If you're on a similar path, I hope it helped even a little. More to come soon.
+## Thanks For Reading
+Thanks for reading! This is just me sharing my journey as I go. If you're on a similar path, I hope it helped even a little. More to come soon.

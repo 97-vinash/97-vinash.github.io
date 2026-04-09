@@ -29,3 +29,23 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - README.md
+
+# ── Markdown: GFM with soft-wrap line breaks ──────────────────────────────────
+# This makes a single newline in your .md files create a <br> in the output.
+# You no longer need two trailing spaces or blank lines between sentences.
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: true        # single newline → <br>  (fixes your line-break pain)
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    block:
+      line_numbers: false
+
+# ── LiveReload fix for WSL2 ───────────────────────────────────────────────────
+# WSL2 runs on a virtual network so 127.0.0.1 in the injected livereload script
+# cannot reach the host. Binding to 0.0.0.0 and using your WSL2 IP fixes it.
+# Run:  bundle exec jekyll serve --livereload --host 0.0.0.0
+# Then open:  http://localhost:4000  in your Windows browser.
+# Changes will now auto-reload without Ctrl+C.
+#livereload_port: 35729

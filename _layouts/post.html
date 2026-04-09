@@ -12,127 +12,139 @@
 
   {% include header.html %}
 
-<main class="post content">
-  <!-- Fixed Back button - now outside the content container -->
-  <a href="{{ '/' | relative_url }}" class="back-home-fixed" aria-label="Back to homepage">
-    <svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Back button: fixed to top-left, always visible while scrolling -->
+  <a href="{{ '/' | relative_url }}" class="back-btn" aria-label="Back to homepage">
+    <svg width="14" height="14" viewBox="0 0 16 16" fill="none"
+         stroke="currentColor" stroke-width="2.5"
+         stroke-linecap="round" stroke-linejoin="round">
       <polyline points="10,4 6,8 10,12"/>
     </svg>
-    <span>Back</span>
+    Back
   </a>
 
-  <div class="container">
-    <div class="post-layout">
-      <article class="post-article">
-        <div class="post-meta">
-          <div class="post-date">{{ page.date | date: "%B %-d, %Y" }}</div>
-          <h1 class="post-title">{{ page.title }}</h1>
-          {% if page.tags %}
-          <div class="post-tags">
-            {% for tag in page.tags %}
-              <span class="tag">{{ tag }}</span>
-            {% endfor %}
-          </div>
-          {% endif %}
-        </div>
-        <hr class="post-divider" />
-        <div class="post-content" id="post-body">
-          {{ content }}
-        </div>
-      </article>
+  <main class="post content">
+    <div class="container">
+      <div class="post-layout">
 
-      <aside class="post-toc-sidebar" id="toc-sidebar-container">
-        <div id="toc-title">On this page</div>
-        <ul id="toc-list"></ul>
-      </aside>
-    </div>
-  </div>
-</main>
+        <!-- Main article -->
+        <article class="post-article">
+          <div class="post-meta">
+            <div class="post-date">{{ page.date | date: "%B %-d, %Y" }}</div>
+            <h1 class="post-title">{{ page.title }}</h1>
+            {% if page.tags %}
+            <div class="post-tags">
+              {% for tag in page.tags %}
+                <span class="tag">{{ tag }}</span>
+              {% endfor %}
+            </div>
+            {% endif %}
+          </div>
+          <hr class="post-divider" />
+          <div class="post-content" id="post-body">
+            {{ content }}
+          </div>
+        </article>
+
+        <!-- TOC sidebar (populated by JS; hidden if < 2 headings) -->
+        <aside class="post-toc-sidebar" id="toc-sidebar-el">
+          <div id="toc-title">On this page</div>
+          <ul id="toc-list"></ul>
+        </aside>
+
+      </div><!-- /.post-layout -->
+    </div><!-- /.container -->
+  </main>
 
   {% include footer.html %}
 
-  <!-- Fixed Back button (appears on all posts) -->
-  <a href="{{ '/' | relative_url }}" class="back-home-fixed" aria-label="Back to homepage">
-    <svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-      <polyline points="10,4 6,8 10,12"/>
-    </svg>
-    <span>Back</span>
-  </a>
-
   <!-- Scroll-to-top button -->
-  <button id="scroll-top" aria-label="Back to top">
-    <svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+  <button id="scroll-top" aria-label="Back to top" title="Back to top">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+         stroke="currentColor" stroke-width="2.2"
+         stroke-linecap="round" stroke-linejoin="round">
       <polyline points="4,10 8,6 12,10"/>
     </svg>
   </button>
 
   <script>
-    (function() {
-      // Scroll to top
-      const scrollBtn = document.getElementById('scroll-top');
-      if (scrollBtn) {
-        window.addEventListener('scroll', () => {
-          scrollBtn.classList.toggle('visible', window.scrollY > 400);
-        }, { passive: true });
-        scrollBtn.addEventListener('click', () => {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
+  (function () {
+    /* ── Scroll-to-top ─────────────────────────────────────────────── */
+    var scrollBtn = document.getElementById('scroll-top');
+    window.addEventListener('scroll', function () {
+      scrollBtn.classList.toggle('visible', window.scrollY > 380);
+    }, { passive: true });
+    scrollBtn.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    /* ── Table of Contents ─────────────────────────────────────────── */
+    var postBody   = document.getElementById('post-body');
+    var tocList    = document.getElementById('toc-list');
+    var tocSidebar = document.getElementById('toc-sidebar-el');
+    if (!postBody || !tocList || !tocSidebar) return;
+
+    var headings = Array.from(postBody.querySelectorAll('h1, h2, h3, h4'));
+
+    /* Hide sidebar entirely if not enough headings */
+    if (headings.length < 2) {
+      tocSidebar.style.display = 'none';
+      return;
+    }
+
+    /* Give each heading a stable, unique id */
+    var usedIds = {};
+    headings.forEach(function (h, idx) {
+      if (!h.id) {
+        var base = h.textContent.trim()
+          .toLowerCase()
+          .replace(/[^a-z0-9]+/g, '-')
+          .replace(/^-+|-+$/g, '') || 'section';
+        var id = base;
+        var n = 1;
+        while (usedIds[id]) { id = base + '-' + (++n); }
+        usedIds[id] = true;
+        h.id = id;
       }
+    });
 
-      // Table of Contents
-      const postBody = document.getElementById('post-body');
-      const tocList = document.getElementById('toc-list');
-      if (!postBody || !tocList) return;
-
-      const headings = Array.from(postBody.querySelectorAll('h1, h2, h3, h4'));
-      if (headings.length < 2) {
-        document.getElementById('toc-sidebar-container').style.display = 'none';
-        return;
-      }
-
-      headings.forEach((h, idx) => {
-        if (!h.id) {
-          let base = h.textContent.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
-          if (!base) base = 'section';
-          h.id = `${base}-${idx}`;
-        }
+    /* Build TOC list */
+    headings.forEach(function (h) {
+      var li = document.createElement('li');
+      li.classList.add('toc-' + h.tagName.toLowerCase());
+      var a = document.createElement('a');
+      a.href = '#' + h.id;
+      a.textContent = h.textContent;
+      a.addEventListener('click', function (e) {
+        e.preventDefault();
+        h.scrollIntoView({ behavior: 'smooth', block: 'start' });
       });
+      li.appendChild(a);
+      tocList.appendChild(li);
+    });
 
-      headings.forEach((h) => {
-        const li = document.createElement('li');
-        li.classList.add(`toc-${h.tagName.toLowerCase()}`);
-        const a = document.createElement('a');
-        a.href = `#${h.id}`;
-        a.textContent = h.textContent;
-        a.addEventListener('click', (e) => {
-          e.preventDefault();
-          h.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        });
-        li.appendChild(a);
-        tocList.appendChild(li);
-      });
+    /* ── Active heading highlight on scroll ────────────────────────── */
+    var tocLinks = Array.from(tocList.querySelectorAll('a'));
+    var OFFSET   = 120; /* px below top of viewport to count as "active" */
 
-      const tocLinks = Array.from(tocList.querySelectorAll('a'));
-      const OFFSET = 130;
-      function markActiveHeading() {
-        const scrollY = window.scrollY + OFFSET;
-        let activeHeading = headings[0];
-        for (let i = headings.length - 1; i >= 0; i--) {
-          const h = headings[i];
-          const top = h.getBoundingClientRect().top + window.scrollY;
-          if (top <= scrollY) {
-            activeHeading = h;
-            break;
-          }
+    function markActive() {
+      var scrollY  = window.scrollY + OFFSET;
+      var activeH  = headings[0];
+      for (var i = headings.length - 1; i >= 0; i--) {
+        if (headings[i].getBoundingClientRect().top + window.scrollY <= scrollY) {
+          activeH = headings[i];
+          break;
         }
-        tocLinks.forEach((link) => {
-          const targetId = link.getAttribute('href').substring(1);
-          link.classList.toggle('active', targetId === activeHeading.id);
-        });
       }
-      window.addEventListener('scroll', markActiveHeading, { passive: true });
-      markActiveHeading();
-    })();
+      tocLinks.forEach(function (a) {
+        a.classList.toggle('active',
+          a.getAttribute('href').substring(1) === activeH.id);
+      });
+    }
+
+    window.addEventListener('scroll', markActive, { passive: true });
+    markActive(); /* run once on page load */
+  })();
   </script>
+
 </body>
 </html>
